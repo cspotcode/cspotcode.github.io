@@ -1,0 +1,6 @@
+rm -rf out/**
+cp -R src/ out
+pushd out
+git add -A
+git commit -m "Site update"
+git push
