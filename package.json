@@ -2,10 +2,10 @@
   "private": true,
   "name": "cspotcode.github.io",
   "version": "1.0.0",
-  "description": "Personal website",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "deploy-redirect-server": "cd ./redirect-server ; ./deploy"
   },
-  "author": "",
-  "license": "whatever"
+  "dependencies": {
+    "require-yaml": "^0.0.1"
+  }
 }

@@ -1,0 +1,7 @@
+#!/usr/bin/env node
+
+var Path = require('path');
+require('require-yaml');
+var version = require(Path.join(process.cwd(), process.argv[2])).version;
+version = version.replace('snapshot', new Date().toISOString().replace(/(-|:|\.\d+.*?$)/g, '').replace('T', 't'));
+console.log(version);

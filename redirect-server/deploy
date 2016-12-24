@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+set -e
+
+# You must set the project ID / application ID for this script to pick up
+applicationId=$(git config gae.application-id)
+version=$(./version src/redirect-server/app.yaml)
+
+# Deploy a version to Google App Engine
+goapp deploy -application $applicationId -version $version src/redirect-server/app.yaml
+
+# Redirect all traffic to the deployed version
+gcloud app services set-traffic --project $applicationId default --splits $version=1 --quiet
