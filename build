@@ -1,4 +1,9 @@
-rm -rf out/**
+#!/usr/bin/env bash
+set -e
+__dirname="$(CDPATH= cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+cd "$__dirname"
+
+rm -rf out/*
 cp -R src/ out
 pushd out
 git add -A
