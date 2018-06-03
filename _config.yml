@@ -263,6 +263,9 @@ compress_html:
 
 # Defaults
 defaults:
+  # all pages
+  - values:
+      read_time: false
   # _posts
   - scope:
       path: ""
