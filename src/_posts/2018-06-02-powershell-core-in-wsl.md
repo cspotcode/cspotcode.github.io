@@ -1,3 +1,11 @@
+---
+layout: post
+date:   2018-06-02
+title:  "Running pwsh in WSL via ConEmu"
+excerpt: "Running pwsh in WSL via ConEmu"
+# image: "/images/pic02.jpg"
+---
+
 I was setting up [ConEmu](https://conemu.github.io/) on Windows to run Powershell Core within my WSL Ubuntu installation.  The latest ConEmu includes [wslbridge](https://github.com/rprichard/wslbridge) and is preconfigured to launch `bash` like this:
 
 ```bash
