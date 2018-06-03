@@ -8,7 +8,9 @@ main:
   #   url: /year-archive/
   # - title: "Sample Collections"
   #   url: /collection-archive/
-  - title: "Projects"
-    url: /collection-projects/
-  - title: "Sitemap"
-    url: /sitemap/
+  # - title: "Projects"
+  #   url: /collection-projects/
+  # - title: "Sitemap"
+  #   url: /sitemap/
+  - title: 'Github'
+    url: 'https://github.com/cspotcode'
