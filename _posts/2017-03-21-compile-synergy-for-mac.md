@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Compile Synergy for Mac"
 date:   2017-03-21
+title:  "Compile Synergy for Mac"
 excerpt: "How to compile Synergy KVM software from source on Mac"
 # image: "/images/pic02.jpg"
 ---

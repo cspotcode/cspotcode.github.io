@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "Running pwsh in WSL via ConEmu"
 date:   2018-06-02
-# excerpt: "Running pwsh in WSL via ConEmu"
+title:  "Running pwsh in WSL via ConEmu"
+excerpt: "Running pwsh in WSL via ConEmu"
 # image: "/images/pic02.jpg"
 ---
 
