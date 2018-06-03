@@ -108,7 +108,7 @@ author:
   name             : "Andrew Bradley"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : ""
-  location         : ""
+  location         : null # E.g. Smallville, CO
   email            : "cspotcode@gmail.com"
   uri              : "https://cspotcode.com"
   home             : # null (default), "absolute or relative url to link to author home"
@@ -118,7 +118,7 @@ author:
   flickr           :
   facebook         :
   foursquare       :
-  github           : "https://github.com/cspotcode"
+  github           : "cspotcode"
   gitlab           :
   google_plus      :
   keybase          :
