@@ -277,7 +277,7 @@ defaults:
       comments: true
       share: true
       related: true
-      permalink: :categories/:title
+      permalink: posts/:title
 
 
 # collections:
