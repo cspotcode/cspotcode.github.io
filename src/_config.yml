@@ -21,10 +21,10 @@ minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt"
 
 # Site Settings
 locale                   : "en-US"
-title                    : "cspotcode"
+title                    : "cspotcode - Andrew Bradley"
 title_separator          : "-"
 name                     : "Andrew Bradley"
-description              : "Personal site, blog about programming, and open-source projects."
+description              : "Personal site, blogs about programming, and open-source projects."
 url                      : "https://cspotcode.com" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "cspotcode" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
@@ -263,6 +263,9 @@ compress_html:
 
 # Defaults
 defaults:
+  # all pages
+  - values:
+      read_time: false
   # _posts
   - scope:
       path: ""
@@ -270,7 +273,14 @@ defaults:
     values:
       layout: single
       author_profile: true
-      read_time: true
+      read_time: false
       comments: true
       share: true
       related: true
+      permalink: posts/:title
+
+
+# collections:
+#   projects:
+#     output: true
+#     permalink: /:collection/:path/

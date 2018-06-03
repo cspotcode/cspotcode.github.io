@@ -1,5 +1,4 @@
 ---
-layout: single
 date:   2018-06-02
 title:  "Running pwsh in WSL via ConEmu"
 excerpt: "Running pwsh in WSL via ConEmu"
@@ -12,7 +11,9 @@ I was setting up [ConEmu](https://conemu.github.io/) on Windows to run Powershel
 set "PATH=%ConEmuBaseDirShort%\wsl;%PATH%" & %ConEmuBaseDirShort%\conemu-cyg-64.exe --wsl -cur_console:pm:/mnt
 ```
 
-Behind the scenes this runs wslbridge, which in turn launches the default shell (`bash`) in a TTY.  TTY is only on by default when running the default shell.  If we specify a custom executable, we must also specify `-t` to enable the TTY.  Putting it together, plus a few nice `pwsh` args, we append `-t pwsh -NoLogo -ExecutionPolicy RemoteSigned`.
+Behind the scenes this runs wslbridge, which in turn launches the default shell (`bash`) in a TTY.
+The TTY is only enabled by default when running the default shell.  If we specify a custom executable, we must also specify `-t` to enable the TTY.
+Putting it together, plus a few PowerShell flags, we append `-t pwsh -NoLogo -ExecutionPolicy RemoteSigned`.
 
 ```bash
 set "PATH=%ConEmuBaseDirShort%\wsl;%PATH%" & %ConEmuBaseDirShort%\conemu-cyg-64.exe --wsl -cur_console:pm:/mnt -t pwsh -NoLogo -ExecutionPolicy RemoteSigned
