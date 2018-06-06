@@ -1,3 +1,9 @@
+---
+date:   2018-06-03
+title:  "Powershell Script Boilerplate"
+# excerpt: "Pow
+---
+
 I'm a big fan of PowerShell, but scripts can require some annoying boilerplate.  Here's what I'm using lately for new scripts:
 
 ```powershell
@@ -47,4 +53,4 @@ it will execute any script block, but by convention we pass a script block that 
 
 ## Gotchas
 
-`$PSScriptRoot` is only defined in `.ps1` files, *even with a shebang, even on Linux.*  I dunno why; the file needs that extension.
+`$PSScriptRoot` is only defined in files with a `.ps1` extension, *even with a shebang, even on Linux.*  I dunno why; the file needs that extension or else that variable will not be set.
