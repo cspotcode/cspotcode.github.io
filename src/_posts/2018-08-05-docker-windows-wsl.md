@@ -6,16 +6,25 @@ title:  "Connect WSL Docker CLI to Docker for Windows"
 
 Use case: You want to run docker commands from WSL bash.  You're running Windows and have Docker for Windows installed.
 
-For example, most of my team at work runs Mac and Linux, so all our scripts are written against Unix / bash.  I work within WSL
-but have Docker for Windows installed.  As far as I know, you can't run a docker engine within WSL, but you *can* install and run docker's CLI.
+For example, most of my team at work runs Mac and Linux, so all our scripts are written against Unix / bash.  I work within WSL on a Windows host,
+so I have Docker for Windows installed.
+
+As far as I know, you can't run a docker engine within WSL, but you *can* install and run docker's CLI.
+So you simply need to configure WSL's docker CLI to talk to Windows' Docker engine.  The Windows Docker engine accepts connections
+on a Windows named pipe, which WSL processes cannot access.  Fortunately, there's a program --
+[`npiperelay.exe`](https://github.com/jstarks/npiperelay) -- which can create a bridge between a Windows
+named pipe and a Unix domain socket.  Connections to the Unix socket are proxied to the Windows named pipe.
 
 *NOTE: my username in both WSL and Windows is "abradley"; substitute your own.*
 
-## Installation 
+## Installation
+
 1. Install docker-ce, go, and socat in WSL Ubuntu
 1. Install npiperelay and docker-relay script
 
 ### Install docker-ce, go, and socat in WSL Ubuntu
+
+*I use Ubuntu; I'm sure other distros will work, too*
 
 Docker installation is documented on [Docker's website](https://docs.docker.com/install/linux/docker-ce/ubuntu/).
 
@@ -64,7 +73,7 @@ sudo bash -c "$HOME/bin/docker-relay 1>/dev/null 2>/dev/null & disown"
 
 ## Usage
 
-Start docker relay.
+Start the pipe relay.
 
 ```bash
 start-docker-relay
