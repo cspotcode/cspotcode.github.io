@@ -33,8 +33,9 @@ go get -d github.com/jstarks/npiperelay
 GOOS=windows go build -o /mnt/c/Users/abradley/bin/npiperelay.exe github.com/jstarks/npiperelay
 ```
 
-`go get` checks out the npiperelay source code into /home/abradley/go/src/github.com/jstarks/npiperelay  
-`go build` builds the Windows version of npiperelay and saves it at $HOME/go/bin/npiperelay.exe *in Windows*. (not WSL)
+`go get` checks out the npiperelay source code into "/home/abradley/go/src/github.com/jstarks/npiperelay"
+
+`go build` builds the Windows version of npiperelay and saves it at "$HOME/bin/npiperelay.exe" *in Windows*. (not WSL)
 
 ```bash
 # In WSL bash
