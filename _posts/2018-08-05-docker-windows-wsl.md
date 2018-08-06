@@ -85,3 +85,10 @@ start-docker-relay
 At this point `docker` commands should work.  They'll attempt to connect to unix socket `/var/run/docker.sock`, which is hosted by `socat`.  Socat will start and pipe the connection to `npiperelay.exe`, which connects to Windows named pipe `//./pipe/docker_engine`.
 
 *NOTE: If you've previously configured DOCKER_HOST or other docker environment variables, you'll probably have to undo that.  This setup relies on docker's default behavior, connecting to Unix socket /var/run/docker.sock*
+
+## Misc
+
+Docker for Windows has an option to accept TCP connections without any encryption.  This is less secure than the named pipe.
+
+There are tutorials for setting up Windows Docker to use TLS.  These are for Windows server and do not work for a
+developer machine.
