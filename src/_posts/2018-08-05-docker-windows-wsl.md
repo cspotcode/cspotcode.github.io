@@ -36,15 +36,17 @@ socat is installed with apt-get: `sudo apt-get install socat`
 
 [npiperelay](https://github.com/jstarks/npiperelay)
 
+Use `go get` to check out npiperelay source code into "/home/abradley/go/src/github.com/jstarks/npiperelay"
+Use `go build` to build the Windows version of npiperelay and saves it at "$HOME/bin/npiperelay.exe" *in Windows*. (not WSL)
+
 ```bash
 # In WSL bash
 go get -d github.com/jstarks/npiperelay
 GOOS=windows go build -o /mnt/c/Users/abradley/bin/npiperelay.exe github.com/jstarks/npiperelay
 ```
 
-`go get` checks out the npiperelay source code into "/home/abradley/go/src/github.com/jstarks/npiperelay"
-
-`go build` builds the Windows version of npiperelay and saves it at "$HOME/bin/npiperelay.exe" *in Windows*. (not WSL)
+npiperelay includes a script to setup a docker pipe.  Copy it to `$HOME/bin` *in WSL* and set
+execute permissions.
 
 ```bash
 # In WSL bash
@@ -54,11 +56,12 @@ cp /home/abradley/go/src/github.com/jstarks/npiperelay/docker-relay $HOME/bin/
 chmod +x $HOME/bin/docker-relay
 ```
 
-... except that I had issues running `docker-relay` because socat running as root was unable to find "npiperelay.exe"  So I modified it to hard-code the path:
+... except I had issues running `docker-relay`, because socat running as root is unable to find "npiperelay.exe".  So I modified it to use an absolute path:
 
 ```bash
 #!/bin/sh
 
+# Notice the full path to npiperelay.exe
 exec socat UNIX-LISTEN:/var/run/docker.sock,fork,group=docker,umask=007 EXEC:"/mnt/c/Users/abradley/bin/npiperelay.exe -ep -s //./pipe/docker_engine",nofork
 ```
 
