@@ -16,7 +16,7 @@ $(document).ready(() => {
     function onChange(e) {
         const date = $date.val();
         const title = $title.val();
-        const titleSlug = title.toLowerCase().replace(' ', '-');
+        const titleSlug = title.toLowerCase().replace(/[^a-zA-Z0-9]/g, '-').replace(/^-+/, '').replace(/-+$/, '');
         const filename = `_posts/${date}-${titleSlug}.md`;
         
         const frontMatter =
