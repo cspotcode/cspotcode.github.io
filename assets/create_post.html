@@ -12,6 +12,7 @@ $(document).ready(() => {
     $date.val(new Date().toISOString().slice(0, 10));
     $('input').on('change', onChange);
     onChange();
+    $title.focus();
     
     function onChange(e) {
         const date = $date.val();
