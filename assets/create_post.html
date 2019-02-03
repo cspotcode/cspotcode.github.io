@@ -1,6 +1,6 @@
-<input name="date" />
-<input name="title" />
-<a id="link" href="">Create Post</a>
+<div><input name="date" /></div>
+<div><input name="title" /></div>
+<div><a id="link" href="">Create Post</a></div>
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script type="text/javascript">
@@ -10,13 +10,12 @@ $.ready(() => {
     const $link = $('#link');
     
     $date.val(new Date().toISOString().slice(0, 10));
-    
-    $date.val(new Date().toISOString().slice(0, 10));
+    $('input').on('change', onChange);
     onChange();
     
     function onChange(e) {
-        const date = $date.value();
-        const title = $title.value();
+        const date = $date.val();
+        const title = $title.val();
         const titleSlug = title.toLowerCase().replace(' ', '-');
         const filename = `_posts/${date}-${titleSlug}.md`;
         
