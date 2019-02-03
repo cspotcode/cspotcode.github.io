@@ -1,0 +1,35 @@
+<input name="date" />
+<input name="title" />
+<a id="link" href="">Create Post</a>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script type="text/javascript">
+$.ready(() => {
+    const $date = $('input[name="date"]');
+    const $title = $('input[name="title"]');
+    const $link = $('#link');
+    
+    $date.val(new Date().toISOString().slice(0, 10));
+    
+    $date.val(new Date().toISOString().slice(0, 10));
+    onChange();
+    
+    function onChange(e) {
+        const date = $date.value();
+        const title = $title.value();
+        const titleSlug = title.toLowerCase().replace(' ', '-');
+        const filename = `_posts/${date}-${titleSlug}.md`;
+        
+        const frontMatter =
+`---
+date:   ${ date }
+title:  "${ title }"
+# excerpt: ""
+---
+
+`;
+        const url = `https://github.com/cspotcode/cspotcode.github.io/new/master?filename=${ encodeURIComponent(filename) }&value=${ encodeURIComponent(frontMatter) }`;
+        $link.attr('href', url);
+    }
+});
+</script>
