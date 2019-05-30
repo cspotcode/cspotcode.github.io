@@ -22,3 +22,11 @@ As far as I can tell, VSCode lets you specify a `--remote` flag of the form `<au
 For attaching to a container, the target should be the hex-encoded container ID.  We can compute this using a node one-liner.
 
 Technically, it looks like the `<target>` can also be a JSON object converted to hex, where the JSON object contains multiple fields.  I think this is used for the `dev-container` authority to specify both a local directory and a docker host.
+
+To attach using a `devcontainer` configuration, the `<authority>` is `dev-container` and the `<target>` should be one of the following hex-encoded:
+* path of the project on the host
+* JSON of the form:
+
+```
+{hostPath: "/home/me/whatever", dockerHost:"I assume a docker host domain name and port goes here"}
+```
