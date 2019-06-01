@@ -32,15 +32,17 @@ foreach($v in $val) {
 }
 ```
 
-The magic is all here:
+The magic is here:
 
 ```
 echo `# <#`
-...
+# bash code
+exit
 #> > $null
+# powershell code
 ```
 
-On bash, it executes what's between the backticks, which is just a comment.  So it succeeds silently and passes through to the bash script.
+On bash, it executes what's between the backticks, which is just a comment.  So it succeeds silently and passes through to the bash script.  We `exit` before it gets to any PowerShell syntax.
 
-On PowerShell the backtick is an escape character, so `` `#`` is parsed as the string `"#"`.  It's followed by a multiline comment wrapped in `<# #>`,
-so PowerShell skips over all of our bash code.  We redirect to `$null` to suppress the echoed `#`.
+On PowerShell the backtick is an escape character, so `` `#`` is parsed as the string `"#"`.  It's followed by a multiline comment delimited by `<# #>`,
+so PowerShell skips over all our bash code.  We redirect to `$null` to suppress the echoed `#`.
