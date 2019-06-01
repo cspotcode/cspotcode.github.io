@@ -42,5 +42,5 @@ echo `# <#`
 
 On bash, it executes what's between the backticks, which is just a comment.  So it succeeds silently and passes through to the bash script.
 
-On PowerShell the backtick is an escape character, so `\`#` is the string `"#"`.  It's followed by a multiline comment wrapped in `<# #>`,
+On PowerShell the backtick is an escape character, so `` `#`` is parsed as the string `"#"`.  It's followed by a multiline comment wrapped in `<# #>`,
 so PowerShell skips over all of our bash code.  We redirect to `$null` to suppress the echoed `#`.
