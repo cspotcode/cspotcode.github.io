@@ -1,6 +1,6 @@
 ---
 date:   2020-02-26
-title:  "tsconfig composite configuration"
+title:  "Configuring a basic TypeScript composite project"
 # excerpt: ""
 ---
 
