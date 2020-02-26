@@ -7,6 +7,11 @@ title:  "Configuring a basic TypeScript composite project"
 Sometimes I forget the cleanest way to configure a tsconfig composite project with separate tsconfigs for src and test.  Here's the
 latest template that I use.  `tsc --showConfig` is helpful to validate that it's doing the right thing.
 
+This configuration is pretty straightforward:
+* source in `src` is emitted to `dist`
+* tests in `test` will be run via `ts-node` or similar, so they do not need to be emitted.
+* anything else, such as ts-node dev scripts or an `./examples` directory, is handled by the root tsconfig file, and is not compiled.
+
 ### tsconfig.json
 
 ```
@@ -65,4 +70,3 @@ latest template that I use.  `tsc --showConfig` is helpful to validate that it's
     }
 }
 ```
-
